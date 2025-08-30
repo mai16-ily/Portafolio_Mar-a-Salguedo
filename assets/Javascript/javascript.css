@@ -1,0 +1,150 @@
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Estilos para la validación de formulario */
+.form-group.error input,
+.form-group.error textarea {
+  border-color: #ff3860;
+}
+
+.error-message {
+  color: #ff3860;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: #23d160;
+  font-size: 1rem;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Estilos para animaciones de secciones */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Transición para las barras de habilidades */
+.skill-bar.initial {
+  width: 0;
+}
+
+/* Transición para las imágenes de proyectos */
+.project-image {
+  transition: transform 0.3s ease;
+}
+
+/* Header con efecto al hacer scroll */
+header.scrolled {
+  background-color: rgba(196, 30, 58, 0.95);
+  padding: 10px 50px;
+}
+
+/* Botón para volver arriba */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+/* Media queries para el menú responsive */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--color-primary);
+    padding: 80px 20px 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 5px 0;
+  }
+}
